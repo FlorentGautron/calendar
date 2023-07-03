@@ -1,0 +1,127 @@
+/*******************************************************************************************************************/
+/*/////////////                                 Boîte Popup                                     ///////////////////*/
+/*/////////////                           Le Modal (l'arrière-plan)                             ///////////////////*/
+/*******************************************************************************************************************/
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Rester dans la place */
+    z-index: 8888; /* S'asseoir en haut */
+    left: 0;
+    top: -50px;
+    width: 100%; /* Largeur complète */
+    height: 150%; /* Hauteur complète */
+    overflow: auto; /* Activer défilement si nécessaire */
+    background-color: rgb(0, 0, 0); /* Couleur de plan */
+    background-color: rgba(0, 0, 0, 0.4); /*  w/ opacité noir*/
+}
+/*******************************************************************************************************************/
+/*/////////////                              Contenu Modal/Boîte                                ///////////////////*/
+/*******************************************************************************************************************/
+.modal-content {
+    background-color: #fefefe;
+    margin: 10vh auto; /* 15% d'en haut et centré */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Pouvait être plus ou moins, dépend de la taille de l'écran  */
+    height : 90vh;
+    font-size: 0.6em;
+}
+@media (min-width: 1366px) {
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10vh auto; /* 15% d'en haut et centré */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 20%; /* Pouvait être plus ou moins, dépend de la taille de l'écran */
+    }
+}
+#divSelectionCreneauDotation ul{
+    height: 95%;
+}
+h2, p {
+    margin: 0 0 20px;
+    font-weight: 400;
+    color: #666;
+}
+span {
+    color: #666;
+    display: block;
+    padding: 0 0 5px;
+}
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #1c87c9;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}
+button:hover {
+    background: #2371a0;
+}
+/*******************************************************************************************************************/
+/*/////////////                                 Le bouton Fermer                                ///////////////////*/
+/*******************************************************************************************************************/
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+button.button {
+    background: none;
+    border-top: none;
+    outline: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: #02274a 1px solid;
+    padding: 0 0 3px 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+button.button:hover {
+    border-bottom: #a99567 1px solid;
+    color: #a99567;
+}
+
+/*******************************************************************************************************************/
+/*/////////////                 Div Selection Heure/Creneau sur Jour Dotation Prise             ///////////////////*/
+/*******************************************************************************************************************/
+#divSelectionCreneauDotation ul{
+    display : grid;
+    grid-template-columns:  1fr;
+    background-color: #FFFFFF;
+    padding: 15px 40px;
+    max-width: 400px;
+    height : 90%;
+    overflow-y:auto;
+    z-index: 100;
+}
+#divSelectionCreneauDotation ul div {
+    grid-column: 1 span;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding-top :0;
+    margin-top: 0;
+}
+#divSelectionCreneauDotation li{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    color : black;
+    padding : 2px;
+}
+#divSelectionCreneauDotation hr{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    width: 99%;
+    color: black;
+    margin: 0;
+    vertical-align: top;
+}

@@ -1,0 +1,467 @@
+#div_select_dates{
+    border-radius: 25px;
+}
+.class_bouton_standard{
+    z-index: 20;
+    width: 200px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #17253E;
+    color: #fff;
+    box-shadow: 1px 1px 12px #555;
+    border: none;
+}
+/*******************************************************************************************************************/
+/*/////////////                                 DIV INDICATION                                  ///////////////////*/
+/*******************************************************************************************************************/
+#divIndicationCreationDates{
+    background-color: #ffffbf;
+    border-radius: 15px;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    margin-bottom: 20px;
+    height : fit-content;
+}
+#divIndicationCreationDates h4{
+    text-decoration: underline;
+}
+
+#divGeneraleCreationDates{
+    width : auto;
+    margin:  0 auto;
+}
+@media only screen and (max-width:1200px) {
+    #div_globale{
+        width : calc(100% - 40px) !important;
+        margin-left : 20px;
+        margin-right : 20px;
+    }
+}
+#span1IndicationCouleur, #span2IndicationCouleur, #span3IndicationCouleur{
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+}
+#span1IndicationCouleur{
+    background-color: green;
+}
+#span2IndicationCouleur{
+    background-color: orange;
+}
+#span3IndicationCouleur{
+    background-color: darkred;
+}
+
+/*******************************************************************************************************************/
+/*//////////////////////////                        CREATION DE DATES                 /////////////////////////////*/
+/*******************************************************************************************************************/
+
+#divGeneraleCreationDates{
+    display : grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    grid-column-gap: 3%;
+    padding-left : 3%;
+    padding-right : 3%;
+}
+#divGeneraleCreationDates h2{
+    grid-column: 2 / 4;
+}
+#idFormHasErrors{
+    grid-column: 2 / 4;
+}
+#divIndicationCreationDates {
+    /*grid-column: 2 / 3;*/
+}
+#divCalendrierCreationDates {
+    grid-column: 3 / 4;
+}
+/*
+#timesPickers1-2CreationDates {
+    grid-column:  2 / 4;
+}   */
+#timesPickers1-2CreationDates span{
+    font-size: 0.8em;
+}
+#idFormCreationDates{
+    grid-column:  2 / 4;
+}
+#divBoutonsCreationDates{
+    grid-column:  2 / 4;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align : center;
+}
+@media only screen and (max-width:1200px) {
+   /* #divIndicationCreationDates {
+        grid-column: 2 / 4;
+    }   */
+    #divCalendrierCreationDates {
+        grid-column: 2 / 4;
+    }
+}
+.grid-container-calendrier{
+    font-size: 0.9em;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    max-width : 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.grid-container-calendrier div h4{
+    padding : 3px;
+}
+.grid-container-calendrier span {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+#divCalendrierCreationDates{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+#divCalendrierCreationDates h2{
+    text-align : center;
+}
+/* RAJOUT POUR GESTION 1 OU 2 CALENDRIER */
+.class1calendrier{
+    grid-template-columns: auto;
+}
+.class2calendrier{
+    grid-template-columns: auto auto 1fr;
+}
+#divCalendrier1CreationDates{
+    min-width : 338px;
+}
+
+.divCalendrierCreationDates{
+    scroll-behavior: smooth;
+    border-radius: 15px;
+    padding:10px;
+    color: #1c87c9;
+    background-color: #FFFFFF;
+    grid-column: 2 / 3;
+    grid-row: 1;
+    max-width: 450px;
+    max-height: 450px;
+    height: 450px !important;
+    margin-bottom: 20px !important;
+}
+/*******************************************************************************************************************/
+/*/////////////                     FONCTIONNEMENT SELECTION ET SURLIGNEMENT DATES              ///////////////////*/
+/*******************************************************************************************************************/
+.note {
+    font-size: calc(0.5vw + 0.75rem);
+    text-align: center;
+    opacity: 0.5;
+}
+.button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.6875em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    background-color: #37474F;
+    border-radius: 1.5em;
+    cursor: pointer;
+}
+.calendar-wrap {
+    width: 100%;
+    padding: 0.75em;
+    margin: auto;
+    font-size: 4vw;
+    background-color: #fff;
+    border-radius: 1.5em;
+    user-select: none;
+    box-shadow:
+            0 0.0625em 0.25em rgba(0,20,50,0.2),
+            0 0.5em 0.5em 0.125em rgba(0,20,50,0.1);
+}
+@media (min-width: 500px) {
+    .calendar-wrap {
+        width: 450px;
+        font-size: 1.25rem;
+    }
+}
+
+.month-year {
+    margin-bottom: 0.75em;
+    font-weight: normal;
+    font-size: 1.25em;
+    text-align: center;
+}
+.calendar {
+    table-layout: fixed;
+    width: 100%;
+    margin-bottom: 0.75em;
+    overflow: hidden;
+    border-collapse: collapse;
+    -webkit-tap-highlight-color: transparent;
+}
+.day-title {
+    width: 4em;
+    height: 4em;
+    vertical-align: top;
+    font-weight: bold;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.0625em;
+    box-shadow:
+            inset 0 -0.875em #fff,
+            inset 0 -1em rgba(0,20,50,0.1);
+}
+.day, .dayOff {
+    position: relative;
+    height: 3em;
+}
+.day-off{
+    color : gray;
+    pointer-events:none;
+}
+.day:focus {
+    outline: none;
+}
+.day:focus .day-number::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    transform: translate(-50%,-50%);
+    border: 0.25em solid #0288d1;
+    border-radius: 50%;
+}
+.day.active-a:focus .day-number::after, .day.active-b:focus .day-number::after {
+    width: 100%;
+    height: 100%;
+}
+.day.today:focus .day-number::after {
+    width: 102%;
+    height: 102%;
+}
+.day:hover span.day-number {
+    color: #0288d1;
+}
+.day.range {
+    color: #0288d1;
+    background-color: #e1f5fe;
+}
+.day.range.active-a:first-child, .day.range.active-b:first-child {
+    box-shadow: none;
+}
+.day.range.active-a:first-child + .day.range, .day.range.active-b:first-child + .day.range {
+    box-shadow: -1.5em 0 #e1f5fe;
+}
+.day.range.active-a:first-child + .day:not(.range), .day.range.active-b:first-child + .day:not(.range) {
+    box-shadow: -4.5em 0 #e1f5fe;
+}
+.day.range.active-a:first-child + .day.range.active-b {
+    box-shadow:
+            -1.5em 0 #e1f5fe,
+            inset 1.5em 0 #e1f5fe;
+}
+.day-number {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    border-radius: 50%;
+}
+/*******************************************************************************************************************/
+/*/////////////       RAJOUT POUR DOTATIONS EXISTANTE  !Important derriere .day-number          ///////////////////*/
+/*******************************************************************************************************************/
+.bgGreen{
+    color:  #e1f5fe;
+    background-color: green;
+}
+.bgOrange{
+    color:  #e1f5fe;
+    background-color: orange;
+}
+.bgRed{
+    color:  #e1f5fe;
+    background-color: darkred;
+}
+.bgGreenClaire{
+    color: green;
+    background-color: #e1f5fe;
+}
+
+/**********************************************************/
+.day.active-a span.day-number,
+.day.active-b span.day-number {
+    color: #fff;
+    background-color: #03A9F4;
+}
+.day.prev-mon .day-number,
+.day.next-mon .day-number {
+    color: rgba(0,0,0,0.3);
+}
+.day.prev-mon[class*="active"] .day-number,
+.day.next-mon[class*="active"] .day-number {
+    color: rgba(255,255,255,0.5);
+    background-color: #81D4FA;
+}
+.day.today span.day-number {
+    color: #fff;
+    border: 0.25em solid transparent;
+    box-shadow: inset 0 0 0 2em #37474F;
+}
+.calendar-wrap .reset {
+    display: block;
+}
+/*******************************************************************************************************************/
+/*/////////////                        RAJOUT RADIUS DATE DEBUT ET FIN                          ///////////////////*/
+/*******************************************************************************************************************/
+.dayBook.dayOff{
+    background-color: #e1f5fe;
+    border-radius: 0 0 0 0;
+}
+.bgBorderRightRadius{
+    border-radius: 50% 0 0 50%;
+    background-color: #e1f5fe;
+}
+.bgBorderLeftRadius{
+    border-radius: 0 50% 50% 0;
+    background-color: #e1f5fe;
+}
+.bgBorderRadius50{
+    border-radius: 50% 50% 50% 50%;
+}
+.bgBorderRightRadiusSelect{
+    border-radius: 50% 0 0 50%;
+    background-color: #e1f5fe;
+}
+.bgBorderLeftRadiusSelect{
+    border-radius: 0 50% 50% 0;
+    background-color: #e1f5fe;
+}
+.bgBorderRadius50Select{
+    border-radius: 50% 50% 50% 50%;
+}
+/*******************************************************************************************************************/
+/*/////////////                                    TIME PICKER                                  ///////////////////*/
+/*******************************************************************************************************************/
+.noselect, .noselect2 {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
+}
+.time-picker, .time-picker2 {
+    display:grid;
+    align-items:center;
+    margin:0 auto;
+    width:150px;
+    justify-content:space-evenly;
+    border:1px solid #ccc;
+    border-radius:10px;
+    padding:10px;
+    grid-template-columns: 100%;
+    text-align: center;
+}
+.tp-col , .tp-col2 {
+    display:flex;
+    flex-direction:column;
+    align-items: inherit;
+}
+.tp-hr>span,.tp-min>span, .tp-hr2>span,.tp-min2>span {
+    border:1px solid #ccc;
+    padding:4px 4px ;
+    border-radius:4px;
+    width:40px;
+    line-height: 70px;
+    text-align:center;
+    vertical-align: center;
+    font-size:15pt;
+}
+.tp-up-arrow,.tp-down-arrow, .tp-up-arrow2,.tp-down-arrow2  {
+    cursor:pointer;
+    width:15px;
+    height:15px;
+}
+#timesPickers1-2CreationDates {
+    flex-direction: row !important;
+    background-color: #FFFFFF;
+    color: #1c87c9;
+    width: available;
+    padding :15px;
+    border-radius: 15px;
+    grid-column: 4 span;
+    overflow-x: hidden;
+}
+#timesPickers1-2CreationDates h4{
+    vertical-align: middle;
+    display: table-cell;
+}
+#idDivDepart{
+    /*grid-column: 2 / 3;*/
+    grid-column: 1 / 2;
+}
+#idDivFin{
+    grid-column: 3 / 4;
+}
+#idDivDepart, #idDivFin{
+    text-align : center;
+}
+#idDivDepart h4, #idDivFin h4{
+    width : 100%;
+    display : inline;
+}
+#timePicker1CreationDates{
+    height : 70px;
+    grid-column: 2 / 3;
+}
+
+#timePicker2CreationDates{
+    grid-column: 4 / 5;
+}
+.classDisabledDiv{
+    pointer-events:none;
+    filter: opacity(25%);
+}
+/****** VISUEL PERDU  ******/
+#idVisuelPerduLabel{
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+/******  DIV BOUTONS ******/
+#divBoutonsCreationDates{
+    margin-top:20px;
+}
+.dayOff{
+    color : gray;
+    pointer-events:none;
+}
+
+.messageIndicatifVisuelPerdu{
+    color : #FFFFFF;
+}
+/*  **** CRENEAU PICKER **** */
+.divWrapp:hover{
+    -webkit-box-shadow:inset 0 0 0 2px #f00;
+    -moz-box-shadow:inset 0 0 0 2px #f00;
+    box-shadow:inset 0 0 0 2px #f00;
+    border-radius: 15px;
+}
+#divVisuelPerdu{
+    margin-top: 40px;
+}
+
