@@ -64,7 +64,7 @@ function calculateRange () {
     let activeAIndex, activeBIndex, nameMonthA, nameMonthB;
 
     function calculeNomMonth () {
-        /*** RECUPERATION INDEX && le NOM de CHAQUE MOIS  ***/
+        /* * Get index && name for each month * */
         days.forEach((item, index) => {
             let id_item_parent = item.parentElement.parentElement.id;
             let id = id_item_parent.replace('divCalendrier', '');
@@ -73,11 +73,11 @@ function calculateRange () {
 
             if (item.classList.contains('active-a')) {
                 activeAIndex = index;
-                nameMonthA = document.getElementById('titreCalendarDate'+id).innerText; // PB ici cas décroissant
+                nameMonthA = document.getElementById('titreCalendarDate'+id).innerText;
             }
             if (item.classList.contains('active-b')) {
                 activeBIndex = index;
-                nameMonthB = document.getElementById('titreCalendarDate'+id).innerText; // PB ici cas décroissant
+                nameMonthB = document.getElementById('titreCalendarDate'+id).innerText;
             }
 
         });

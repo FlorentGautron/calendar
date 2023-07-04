@@ -60,22 +60,31 @@
 
             $(function () {
                 (function ($) {
-                    // *** METTRE LE CALENDRIER EN FRANCAIS *** //
+                    // *** Change calendar language *** //
                     $.fn.datepicker.dates["fr"] = {
-                        days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
-                        daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
-                        daysMin: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
-                        months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-                        monthsShort: ["Janv.", "Févr.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."],
-                        today: "Aujourd\'hui",
-                        monthsTitle: "Mois",
-                        clear: "Effacer",
+                        // *** METTRE LE CALENDRIER EN FRANCAIS *** //
+                        // days: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+                        // daysShort: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+                        // daysMin: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+                        // months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+                        // monthsShort: ["Janv.", "Févr.", "Mars", "Avril", "Mai", "Juin", "Juil.", "Août", "Sept.", "Oct.", "Nov.", "Déc."],
+                        // today: "Aujourd\'hui",
+                        // monthsTitle: "Mois",
+                        // clear: "Effacer",
+                        days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                        daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                        daysMin: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                        monthsShort: ["Jan.", "Feb.", "Mar.", "Apr.", "May", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."],
+                        today: "Today",
+                        monthsTitle: "Month",
+                        clear: "Delete",
                         weekStart: 1,
                         format: "dd/mm/yyyy"
                     };
                 }(jQuery));
 
-                // *** DATE Début *** //
+                // *** Start Date *** //
                 $("#jeu_general_dateDebut").datepicker({
                     language: "fr",
                     startDate: new Date(),
@@ -83,6 +92,7 @@
                     autoclose: true,
                     todayHighlight: true
                 }).on("changeDate", function (selected) {
+                    /* To add limit to the calendar */
 //                        let minDate = new Date(selected.date.valueOf());
 //                        let someDate = new Date(selected.date.valueOf());
 //                        let numberOfDaysToAdd = 30;
@@ -98,7 +108,7 @@
 //                        dateTo.datepicker("setEndDate", someFormattedDate);
                 });
 
-                // *** DATE FIN *** //
+                // *** End Date *** //
                 $("#jeu_general_dateFin").datepicker({
                     language: "fr",
                     startDate: new Date(Date.now() + (3600 * 1000 * 24)),
@@ -122,16 +132,14 @@
             });
         }
             envoye_par_php();
-
     </script>
-
 
     </head>
 
     <body>
         <div id="div_select_dates" class="card mb-4 ml-auto mr-auto mt-4 w-75">
             <div class="titrePages">
-                <h4 class="card-heading text-center">Réservation de créneaux</h4>
+                <h4 class="card-heading text-center">Booking calendar slot</h4>
             </div>
 
             <form id="form" name="form" method="post" enctype="multipart/form-data">
@@ -143,16 +151,16 @@
 
                                 <div id="div_form_dates" class="input-group mb-3 datepicker-range">
 
-                                    <!-- ---------------------   DATE DEBUT   ---------------------  -->
-                                    <label class="form-label required" for="jeu_general_dateDebut">Dates du calendrier : </label>
+                                    <!-- ---------------------   Start date   ---------------------  -->
+                                    <label class="form-label required" for="jeu_general_dateDebut">Calendar dates : </label>
                                     <input type="text" id="jeu_general_dateDebut" name="jeu_general_dateDebut" required="required" format="dd/MM/yyyy" class="form-control datepicker-input w-100" value="<?php if( isset($_POST["jeu_general_dateDebut"])){echo $_POST["jeu_general_dateDebut"];} ?>" >
 
-                                    <!-- ---------------------   DATE FIN    ---------------------  -->
-                                    <label class="form-label text-center required" for="jeu_general_dateFin"> à </label>
+                                    <!-- ---------------------   End date    ---------------------  -->
+                                    <label class="form-label text-center required" for="jeu_general_dateFin"> to </label>
                                     <input type="text" id="jeu_general_dateFin" name="jeu_general_dateFin" required="required" format="dd/MM/yyyy" class="form-control datepicker-input w-100" value="<?php if( isset($_POST["jeu_general_dateFin"])){echo $_POST["jeu_general_dateFin"];} ?>">
 
                                     <div id="div_bouton">
-                                        <button id="bouton_submit" class="class_bouton_standard" name="bouton_submit" type="submit" >Valider</button>
+                                        <button id="bouton_submit" class="class_bouton_standard" name="bouton_submit" type="submit" >Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -199,43 +207,43 @@
 
                 echo '<div id="divIndicationCreationDates" class=" ml-auto mr-auto mb-4 col-10 ">' .
                     '<div id="divIndicationCreationDatesdiv1" class="col-12 ">' .
-                    '<h4>Indications :</h4>' .
+                    '<h4>Instructions :</h4>' .
                     '<ul>' .
-                    '<li>Pour sélectionner un unique jour : Double-clique sur une date</li>' .
-                    '<li>Pour sélectionner plusieurs dates : Sélectionner la date de début puis la date de fin</li>' .
+                    '<li>To select a single day: Double-click on a date</li>' .
+                    '<li>To select multiple dates: Select the start date and then the end date</li>' .
                     '</ul>' .
                     '</div>' .
                     '<div id="divIndicationCreationDatesdiv2" class="col-12 ">' .
                     '<ul>' .
                     '<li>' .
                     '<div id="span1IndicationCouleur"></div>' .
-                    '1 Créneau sur la journée' .
+                    '1 Time slot for the day' .
                     '</li>' .
                     '<li>' .
                     '<div id="span2IndicationCouleur"></div>' .
-                    '2 Créneaux sur la journée' .
+                    '2 Time slots for the day' .
                     '</li>' .
                     ' <li>' .
                     '<div id="span3IndicationCouleur"></div>' .
-                    '3 Créneaux ou plus' .
+                    '3 Time slots or more' .
                     '</li>' .
                     '</ul>' .
                     '</div>' .
                     '</div>' .
 
-                    /* **************************************   RAJOUT CALENDRIER ************************************/
+                    /* **************************************   ADD CALENDAR ************************************/
 
                     ' <div id="divCalendrierCreationDates" class="row ml-auto mr-auto mb-4 col-10 col-sm-10 col-md-10 col-lg-11 col-xl-10">' .
                         /* SCRIPT CALENDAR (JS) */
                     '</div>' .
 
-                    /* **************************************    RAJOUT TIMES     *********************************** */
+                    /* **************************************    ADD TIME     *********************************** */
 
                     '<form class=" ml-auto mr-auto mb-4 w-75" name="date_jeu" method="" id="idFormCreationDates" onsubmit="event.preventDefault();  function_affichage()">' .
 
                     '<div id="timesPickers1-2CreationDates" style="display: grid; grid-template-columns: 25% 25% 25% 25%;" class="card row w-100 p-4 mt-2 mb-2">' .
                     '<div id="idDivDepart" class="">' .
-                    '<h4>Heure de départ :</h4><span id="spanJourPourHeureDepart"></span>' .
+                    '<h4>Start time:</h4><span id="spanJourPourHeureDepart"></span>' .
                     '</div>' .
                     '<div id="timePicker1CreationDates"  class="">' .
                     '<div class="time-picker">' .
@@ -244,7 +252,7 @@
                     '</div>' .
                     '</div>' .
                     '<div id="idDivFin"  class="">' .
-                    '<h4>Heure de fin :</h4><span id="spanJourPourHeureFin"></span>' .
+                    '<h4>End time:</h4><span id="spanJourPourHeureFin"></span>' .
                     '</div>' .
                     '<div id="timePicker2CreationDates"  class="">' .
                     '<div class="time-picker2">' .
@@ -254,23 +262,23 @@
                     '</div>' .
                     '</div>' .
 
-                    /* **************************************        FORMULAIRE      *********************************** */
+                    /* **************************************        FORM     *********************************** */
 
                     '<div style=" display: none;  position:relative;">' .
-                    '<label for="date_jeu_dateDebut" class="required">Créneau de diffusion du : </label>' .
-                    '<input type="text" id="idInputDateDebut" name="date_jeu[dateDebut]" required="required" class="form-control col-3" invalid_message="Veuillez ajouter une date valide.">' .
+                    '<label for="date_jeu_dateDebut" class="required">Broadcast time slot:</label>' .
+                    '<input type="text" id="idInputDateDebut" name="date_jeu[dateDebut]" required="required" class="form-control col-3" invalid_message="Please add a valid date.">' .
 
-                    '<label id="" for="date_jeu_dateFin" class="required">au : </label>' .
+                    '<label id="" for="date_jeu_dateFin" class="required">to : </label>' .
                     '<input type="text" id="idInputDateFin" name="date_jeu[dateFin]" required="required" class="form-control" >' .
                     '</div>' .
 
 
-                    /* **************************************        BOUTONS      *********************************** */
+                    /* **************************************        Buttons      *********************************** */
 
 
                     '<div id="divBoutonsCreationDates" class="w-100 text-center mt-4">' .
-                    '<button form="idFormCreationDates" type="submit" id="submit" class="class_bouton_standard suivant " name="submit">Valider</button>' .
-                    '<button form="idFormCreationDates"  type="reset" id="reset" class="class_bouton_standard " name="reset" onClick="window.history.back();">Retour</button>' .
+                    '<button form="idFormCreationDates" type="submit" id="submit" class="class_bouton_standard suivant " name="submit">Submit</button>' .
+                    '<button form="idFormCreationDates"  type="reset" id="reset" class="class_bouton_standard " name="reset" onClick="window.history.back();">Cancel</button>' .
                     '</div>' .
 
                     '</form>' .
@@ -285,13 +293,13 @@
                     /* **************************************        INSERTION RDV      *********************************** */
                     '<p class="" id="p_insertion_en_dessous"></p>'.
 
-                    /***************************************   POP-UP selection CRÉNEAU  ************************************/
+                    /***************************************   POP-UP select slot   ************************************/
 
                     '<div id="modalOne" class="modal" >' .
                     '<div class="modal-content">' .
                     '<div class="contact-form">' .
                     '<a class="close">&times;</a>' .
-                    '<h5>Sélectionner le créneau :</h5>' .
+                    '<h5>Select the time slot :</h5>' .
                     '<div>' .
                     '<div id="divSelectionCreneauDotation" class="classDivSelectionCreneauDotation">' .
                     '<ul>' .
@@ -393,7 +401,7 @@
                     '</div>' .
                     '</div>' .
                     '</div>' .
-                    /***************************************   POP-UP selection CRÉNEAU  ************************************/
+                    /***************************************   POP-UP select slot  ************************************/
                     '</div>';
             }
         ?>
@@ -435,7 +443,7 @@
 
                 dates.push(object);
 
-                // REMPLACEMENT DU CALENDRIER PAR UN NOUVEAU
+                // Replace CALENDAR by nex one
                 Calendar.prototype.getHTML = function () {
                     return this.html;
                 }
@@ -444,7 +452,7 @@
                 cal.generateHTML();
                 document.getElementById('divCalendrierCreationDates').innerHTML = cal.getHTML();
 
-                // RECUPERATION DE TOUT LES ELEMENTS AVEC LA CLASS day
+                // Get all element with day class
                 days = document.querySelectorAll('.day');
                 offset = 0;
 

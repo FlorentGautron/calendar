@@ -1,5 +1,6 @@
 /*** LISTE NOM MOIS ***/
-cal_months_labels = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+cal_months_labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    //['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 
 /*** CURRENT DATE, TIME : 8:00 ***/
 cal_current_date = new Date("" + jeu_dateDebut_mdY + " 08:00");
@@ -190,13 +191,20 @@ Calendar.prototype.generateHTML = function () {
     let html = '<div id="divCalendrier1CreationDates" class="col-xl-6 col-lg-12 col-12 divCalendrierCreationDates card m-auto mb-2" >';
     html += '<h2 id="titreCalendarDate1">' + monthName + "&nbsp;" + this.year + '</h2>';
     html += '<div class="divCalendrierCreationDates grid-container-calendrier">';
-    html += '<div><h4>Lun</h4></div>';
-    html += '<div><h4>Mar</h4></div>';
-    html += '<div><h4>Mer</h4></div>';
-    html += '<div><h4>Jeu</h4></div>';
-    html += '<div><h4>Ven</h4></div>';
-    html += '<div><h4>Sam</h4></div>';
-    html += '<div><h4>Dim</h4></div>';
+    html += '<div><h4>Mon</h4></div>';
+    html += '<div><h4>Tue</h4></div>';
+    html += '<div><h4>Wed</h4></div>';
+    html += '<div><h4>Thu</h4></div>';
+    html += '<div><h4>Fri</h4></div>';
+    html += '<div><h4>Sat</h4></div>';
+    html += '<div><h4>Sun</h4></div>';
+    // html += '<div><h4>Lun</h4></div>';
+    // html += '<div><h4>Mar</h4></div>';
+    // html += '<div><h4>Mer</h4></div>';
+    // html += '<div><h4>Jeu</h4></div>';
+    // html += '<div><h4>Ven</h4></div>';
+    // html += '<div><h4>Sam</h4></div>';
+    // html += '<div><h4>Dim</h4></div>';
 
     for (i = 0; i < startingDay; i++) {
         html += '<div></div>';
@@ -254,13 +262,20 @@ Calendar.prototype.generateHTML = function () {
         html += '<div id="divCalendrier' + x + 'CreationDates" class="col-xl-6 col-lg-12 col-12 divCalendrierCreationDates card m-auto">';
         html += '<h2 id="titreCalendarDate' + x + '">' + eval("monthName" + x) + "&nbsp;" + eval("year" + x) + '</h2>';
         html += '<div class="grid-container-calendrier divCalendrierCreationDates" id="divCalendrier' + x + 'CreationDates">';
-        html += '<div><h4>Lun</h4></div>';
-        html += '<div><h4>Mar</h4></div>';
-        html += '<div><h4>Mer</h4></div>';
-        html += '<div><h4>Jeu</h4></div>';
-        html += '<div><h4>Ven</h4></div>';
-        html += '<div><h4>Sam</h4></div>';
-        html += '<div><h4>Dim</h4></div>';
+        // html += '<div><h4>Lun</h4></div>';
+        // html += '<div><h4>Mar</h4></div>';
+        // html += '<div><h4>Mer</h4></div>';
+        // html += '<div><h4>Jeu</h4></div>';
+        // html += '<div><h4>Ven</h4></div>';
+        // html += '<div><h4>Sam</h4></div>';
+        // html += '<div><h4>Dim</h4></div>';
+        html += '<div><h4>Mon</h4></div>';
+        html += '<div><h4>Tue</h4></div>';
+        html += '<div><h4>Wed</h4></div>';
+        html += '<div><h4>Thu</h4></div>';
+        html += '<div><h4>Fri</h4></div>';
+        html += '<div><h4>Sat</h4></div>';
+        html += '<div><h4>Sun</h4></div>';
 
         for (i = 0; i < eval("startingDay" + x); i++) {
             html += '<div></div>';
